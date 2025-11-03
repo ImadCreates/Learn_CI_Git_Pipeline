@@ -7,6 +7,7 @@ app.use(express.json())
 app.get('/route', (req, res) => res.json({ message:'hello mom' }));
 
 const port = process.env.PORT || 3000
+app.get('/', (req, res) => res.json({ message: 'Full-Stack API live', endpoints: ['/route', '/cats'] }));
 const catRoutes = require('./routes/cats');
 app.use('/cats', catRoutes);
 app.listen(port)
